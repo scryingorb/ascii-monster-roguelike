@@ -1,26 +1,45 @@
 # ASCII Monster Roguelike: Reforged
 
-A terminal monster-catching roguelike built in Python. Explore a procedurally generated dungeon, battle and capture monsters, build a six-monster team, clear elite encounters, collect loot, defeat bosses, and descend through increasingly difficult floors.
+Python terminal roguelike with procedural dungeons, monster capture, turn-based combat, and persistent saves.
 
-## Why this version is different
+## Overview
 
 The original prototype was a single large `game.py`. Reforged splits the project into focused modules for game flow, battles, procedural generation, data models, persistence, content, and UI. The result is easier to test, maintain, and extend.
 
 ## Features
 
-- Procedurally generated connected dungeon floors
-- Monster, elite, treasure, healing, mystery, and boss rooms
-- Turn-based combat with power and accuracy stats
-- Capture chance based on remaining enemy HP
-- Six-monster team limit
-- XP, leveling, HP, attack, defense, and speed progression
-- Species-specific rule-based overworld AI
-- Multiple floors with increasing difficulty
-- Inventory, loot, gold, healing, and Rare Candy
-- JSON save/load with a save-version field
-- Dungeon map with fog of war
-- Automated core tests
-- No third-party runtime dependencies
+- Explore connected procedural floors with combat, treasure, healing, and boss rooms.
+- Capture monsters and manage a team of up to six.
+- Level up through turn-based battles and collect items and gold.
+- Save and restore progress through versioned JSON files.
+- Reveal the dungeon through a fog-of-war map.
+- Keep game flow, combat, generation, persistence, and terminal UI in separate modules.
+
+## Technologies
+
+Python 3.10+, standard-library dataclasses and JSON; pytest for the existing tests.
+
+## Getting Started
+
+Requires Python 3.10+.
+
+```bash
+python main.py
+```
+
+Movement uses `W`, `A`, `S`, `D` followed by Enter. This makes the game work in Windows PowerShell, Command Prompt, VS Code terminals, macOS, and Linux without a platform-specific keyboard library.
+
+## Usage
+
+| Command | Action |
+|---|---|
+| W A S D | Move |
+| M | Map |
+| T | Team |
+| I | Inventory |
+| V | Save |
+| H | Help |
+| Q | Return to title |
 
 ## Project structure
 
@@ -38,32 +57,9 @@ ascii-monster-roguelike-v2/
 │   └── ui.py
 ├── tests/
 │   └── test_core.py
-├── screenshots/
 ├── README.md
 └── .gitignore
 ```
-
-## Run
-
-Requires Python 3.10+.
-
-```bash
-python main.py
-```
-
-Movement uses `W`, `A`, `S`, `D` followed by Enter. This makes the game work in Windows PowerShell, Command Prompt, VS Code terminals, macOS, and Linux without a platform-specific keyboard library.
-
-## Controls
-
-| Command | Action |
-|---|---|
-| W A S D | Move |
-| M | Map |
-| T | Team |
-| I | Inventory |
-| V | Save |
-| H | Help |
-| Q | Return to title |
 
 ## Technical highlights
 
@@ -89,15 +85,6 @@ The runtime has no third-party dependencies. If `pytest` is installed:
 pytest
 ```
 
-## Portfolio description
-
-**ASCII Monster Roguelike: Reforged — Python**  
-Developed a modular terminal roguelike featuring procedural dungeon generation, turn-based combat, monster collection and progression, rule-based enemy AI, persistent JSON saves, multi-floor difficulty scaling, and automated tests.
-
-## Screenshots
-
-Add screenshots to the `screenshots/` directory, then embed them here before featuring the repository prominently.
-
 ## Future ideas
 
 - A* pathfinding
@@ -106,3 +93,7 @@ Add screenshots to the `screenshots/` directory, then embed them here before fea
 - More bosses and biomes
 - Seeded daily runs
 - Pygame graphical client using the same game logic
+
+## Project Status
+
+Functional prototype. Run from source; no packaged GitHub release is available.
